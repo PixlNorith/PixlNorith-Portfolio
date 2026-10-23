@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101010">
+
+    <title>Northstar Detailing | Premium Car Care</title>
+
+    <meta name="description" content="A premium car detailing website concept showcasing professional vehicle care, paint correction and interior detailing.">
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #101010;
+            color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* ===== NAVIGATION ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 19px 8%;
+            background: rgba(16, 16, 16, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid #292929;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #d7ad65;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+        }
+
+        nav a {
+            color: #c8c8c8;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: #e5bd76;
+        }
+
+        .nav-button {
+            border: 1px solid #d7ad65;
+            padding: 9px 15px;
+            border-radius: 4px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 670px;
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            isolation: isolate;
+            padding: 100px 8%;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(10, 10, 10, 0.96) 0%,
+                    rgba(10, 10, 10, 0.76) 48%,
+                    rgba(10, 10, 10, 0.2) 100%
+                ),
+                url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85")
+                center 55% / cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            animation: fadeUp 0.9s ease both;
+        }
+
+        .eyebrow {
+            color: #e5bd76;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(44px, 7vw, 82px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: #e5bd76;
+        }
+
+        .hero p {
+            max-width: 490px;
+            color: #d0d0d0;
+            font-size: 17px;
+            margin-bottom: 32px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #d7ad65;
+            color: #17130d;
+            padding: 14px 23px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            border: 1px solid #d7ad65;
+            border-radius: 3px;
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .button:hover {
+            background: #f0d39b;
+            transform: translateY(-3px);
+            box-shadow: 0 9px 25px rgba(215, 173, 101, 0.18);
+        }
+
+        .outline-button {
+            background: transparent;
+            color: #f5f5f5;
+            border-color: #777;
+            margin-left: 10px;
+        }
+
+        .outline-button:hover {
+            background: #222;
+            color: #e5bd76;
+        }
+
+        /* ===== GENERAL SECTIONS ===== */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-label {
+            color: #d7ad65;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.2;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto 45px;
+            color: #a8a8a8;
+            font-size: 15px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: #151515;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            padding: 32px;
+            background: #1b1b1b;
+            border: 1px solid #303030;
+            border-radius: 5px;
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: #d7ad65;
+            background: #202020;
+        }
+
+        .service-number {
+            color: #d7ad65;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 23px;
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .price {
+            display: inline-block;
+            color: #e5bd76;
+            font-weight: bold;
+            border-top: 1px solid #383838;
+            padding-top: 15px;
+            width: 100%;
+        }
+
+        /* ===== FEATURE IMAGE ===== */
+        .feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .feature-image {
+            height: 420px;
+            overflow: hidden;
+            border-radius: 5px;
+            background: #222;
+        }
+
+        .feature-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .feature-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .feature-text .section-label {
+            text-align: left;
+        }
+
+        .feature-text h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .feature-text h2 span {
+            color: #d7ad65;
+        }
+
+        .feature-text p {
+            color: #aaa;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #d7ad65;
+            margin-right: 12px;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            background: #151515;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .gallery-item {
+            height: 260px;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #222;
+            position: relative;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.07);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px 18px 15px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            text-align: center;
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    #272016 0%,
+                    #101010 70%
+                );
+        }
+
+        .contact .section-description {
+            margin-bottom: 30px;
+        }
+
+        .demo-note {
+            max-width: 650px;
+            margin: 25px auto 0;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 27px 8%;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #888;
+            border-top: 1px solid #292929;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #d7ad65;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 850px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 16px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .feature {
+                gap: 30px;
+            }
+
+            .feature-image {
+                height: 350px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* ===== PHONE ===== */
+        @media (max-width: 600px) {
+            header {
+                position: relative;
+                flex-direction: column;
+                gap: 13px;
+                padding: 17px 5%;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 13px 18px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 620px;
+                padding: 80px 6%;
+                background-position: 58% center;
+            }
+
+            .hero h1 {
+                font-size: clamp(43px, 12vw, 65px);
+                letter-spacing: -1.5px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .eyebrow {
+                letter-spacing: 2px;
+            }
+
+            .outline-button {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+
+            .hero .button {
+                margin-right: 5px;
+            }
+
+            .service-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 27px;
+            }
+
+            .feature {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-image {
+                height: 290px;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Accessibility: respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <a class="logo" href="#home"
+           style="text-decoration:none;color:#f5f5f5;">
+            NORTHSTAR<span>.</span>
+        </a>
+
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a class="nav-button" href="#contact">Get in touch</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    PREMIUM AUTOMOTIVE CARE
+                </div>
+
+                <h1>
+                    Bring back<br>
+                    the <span>showroom</span><br>
+                    feeling.
+                </h1>
+
+                <p>
+                    Professional vehicle detailing focused on
+                    the finish, the details and the feeling of
+                    driving a car that looks its absolute best.
+                </p>
+
+                <a class="button" href="#services">
+                    Explore our services &rarr;
+                </a>
+
+                <a class="button outline-button" href="#contact">
+                    Get in touch
+                </a>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services" id="services">
+            <div class="section-label">WHAT WE DO</div>
+
+            <h2 class="section-title">
+                Care for every detail.
+            </h2>
+
+            <p class="section-description">
+                From a refresh to a deep clean, choose the
+                detailing service that suits your vehicle.
+            </p>
+
+            <div class="service-grid">
+
+                <article class="service-card">
+                    <div class="service-number">01 / EXTERIOR</div>
+
+                    <h3>Exterior Detail</h3>
+
+                    <p>
+                        A careful exterior wash, wheel cleaning
+                        and finish designed to leave your car
+                        looking fresh and clean.
+                    </p>
+
+                    <div class="price">From £45</div>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-number">02 / INTERIOR</div>
+
+                    <h3>Interior Refresh</h3>
+
+                    <p>
+                        Interior vacuuming, surface cleaning
+                        and attention to the details that make
+                        your cabin feel inviting again.
+                    </p>
+
+                    <div class="price">From £60</div>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-number">03 / PREMIUM</div>
+
+                    <h3>Full Detail</h3>
+
+                    <p>
+                        A combined interior and exterior
+                        treatment for a more complete
+                        vehicle refresh.
+                    </p>
+
+                    <div class="price">From £120</div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ABOUT / FEATURE -->
+        <section class="feature" id="about">
+            <div class="feature-image">
+                <img
+                    src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1200&q=85"
+                    alt="Detailed luxury vehicle"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="feature-text">
+                <div class="section-label">THE NORTHSTAR APPROACH</div>
+
+                <h2>
+                    It's not just a clean.<br>
+                    It's <span>the details.</span>
+                </h2>
+
+                <p>
+                    The little things make a difference.
+                    A carefully cleaned finish, a fresh interior
+                    and time spent on the areas that are easy
+                    to overlook.
+                </p>
+
+                <ul class="feature-list">
+                    <li>Careful attention to detail</li>
+                    <li>Services tailored to your vehicle</li>
+                    <li>Clear service options and pricing</li>
+                    <li>A finish you'll be proud to drive</li>
+                </ul>
+
+                <a class="button" href="#contact">
+                    Discuss your vehicle
+                </a>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="gallery" id="gallery">
+            <div class="section-label">THE FINISH</div>
+
+            <h2 class="section-title">
+                A closer look.
+            </h2>
+
+            <p class="section-description">
+                Automotive photography to set the mood for
+                a premium detailing experience.
+            </p>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80"
+                        alt="Sporty car exterior"
+                        loading="lazy"
+                    >
+                    <div class="gallery-caption">
+                        Exterior Finish
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
+                        alt="Luxury sports car"
+                        loading="lazy"
+                    >
+                    <div class="gallery-caption">
+                        Premium Vehicles
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80"
+                        alt="Car photographed outdoors"
+                        loading="lazy"
+                    >
+                    <div class="gallery-caption">
+                        Every Detail Matters
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+            <div class="section-label">LET'S TALK</div>
+
+            <h2 class="section-title">
+                Your car deserves<br>some attention.
+            </h2>
+
+            <p class="section-description">
+                Interested in a detail? Get in touch to discuss
+                your vehicle and find the right service.
+            </p>
+
+            <!-- Demo email: replace before publishing -->
+            <a class="button"
+               href="mailto:hello@example.com?subject=Detailing%20enquiry">
+                Make an enquiry &rarr;
+            </a>
+
+            <p class="demo-note">
+                Portfolio concept by PixlNorith.
+                Northstar Detailing is a fictional business.
+                Services, prices and contact details are examples.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>© 2026 Northstar Detailing</div>
+        <div>A <span>PixlNorith</span> portfolio concept</div>
+    </footer>
+
+</body>
+</html>
